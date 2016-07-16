@@ -52,4 +52,15 @@ config LGE_SHARPENING
 	depends on MACH_LGE
 	bool "LGE display sharpening control"
 	---help---
-	  Allow control of the display sharpening via sysfs node.
+        MDSS debugging provides support to enable display debugging
+	features to: Dump MDSS registers during driver errors, panic
+	driver during fatal errors and enable some display-driver logging
+	into an internal buffer (this avoids logging overhead).
+
+config FB_MSM_MDSS_KCAL_CTRL
+	depends on FB_MSM_MDSS
+	bool "MDSS color control"
+	---help---
+	  Enable sysfs for post-processing control of mdss-mdp5 display
+	  controllers in MDSS.
+
