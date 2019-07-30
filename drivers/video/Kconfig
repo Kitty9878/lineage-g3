@@ -2423,7 +2423,18 @@ if FB || SGI_NEWPORT_CONSOLE
 	source "drivers/video/logo/Kconfig"
 endif
 
-source "drivers/video/klapse/Kconfig"
+config FB_SH_MOBILE_MERAM
+	tristate "SuperH Mobile MERAM read ahead support"
+	depends on (SUPERH || ARCH_SHMOBILE)
+	select GENERIC_ALLOCATOR
+	---help---
+	  Enable MERAM support for the SuperH controller.
 
+	  This will allow for caching of the framebuffer to provide more
+	  reliable access under heavy main memory bus traffic situations.
+	  Up to 4 memory channels can be configured, allowing 4 RGB or
+	  2 YCbCr framebuffers to be configured.
+
+source "drivers/video/slimport/Kconfig"
 
 endmenu
